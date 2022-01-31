@@ -12,7 +12,13 @@ import com.bobabelga.FactoryDesignPattern.Sandwich;
 import com.bobabelga.FactoryDesignPattern.SandwichFactory;
 import com.bobabelga.ObserverDesignPattern.Course;
 import com.bobabelga.ObserverDesignPattern.Student;
+import com.bobabelga.ProxyDesignPattern.Djezzy;
+import com.bobabelga.ProxyDesignPattern.InternetProxy;
+import com.bobabelga.ProxyDesignPattern.InternetServiceProvider;
 import com.bobabelga.SingletonDesignPattern.Single;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
@@ -73,6 +79,15 @@ public class Main {
         bike.accelerate();
         bike.pushBreak();
         bike.soundHorn();
+        System.out.println();
         // ** End Adapter Design Pattern Example **
+
+        // ** Start Proxy Design Pattern Example **
+        List<String> listSites = Arrays.asList("Bobabelga","Twitter","Facebook","Google","Pinterest");
+        InternetServiceProvider provider = new InternetProxy();
+        for (String url:listSites) {
+            System.out.println(provider.serveSite(url));
+        }
+        // ** End Proxy Design Pattern Example **
     }
 }
