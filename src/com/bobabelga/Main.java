@@ -1,5 +1,9 @@
 package com.bobabelga;
 
+import com.bobabelga.DecoratorDesignPattern.BasicPizza;
+import com.bobabelga.DecoratorDesignPattern.Cheese;
+import com.bobabelga.DecoratorDesignPattern.Chicken;
+import com.bobabelga.DecoratorDesignPattern.Pizza;
 import com.bobabelga.FactoryDesignPattern.Sandwich;
 import com.bobabelga.FactoryDesignPattern.SandwichFactory;
 import com.bobabelga.ObserverDesignPattern.Course;
@@ -41,12 +45,17 @@ public class Main {
 
         // ** Start Factory Design Pattern Example **
         // Prepare Sandwich from Class SandwichFactory
-
         System.out.println();
         Sandwich sandwich = SandwichFactory.createSandwich(SandwichFactory.CHEESEBURGER);
         sandwich.prepare();
-
         // ** End Factory Design Pattern Example **
+
+
+        // ** Start Decorator Design Pattern Example **
+        Pizza pizza = new Chicken(new Cheese(new BasicPizza()));
+        System.out.println((int)pizza.getPrice()+" $" );
+        System.out.println(pizza.getDescription());
+        // ** End Decorator Design Pattern Example **
 
     }
 }
