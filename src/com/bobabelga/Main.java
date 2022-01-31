@@ -1,5 +1,9 @@
 package com.bobabelga;
 
+import com.bobabelga.AdapterDesignPattern.Bicycle;
+import com.bobabelga.AdapterDesignPattern.BicycleAdapter;
+import com.bobabelga.AdapterDesignPattern.Car;
+import com.bobabelga.AdapterDesignPattern.Vehicle;
 import com.bobabelga.DecoratorDesignPattern.BasicPizza;
 import com.bobabelga.DecoratorDesignPattern.Cheese;
 import com.bobabelga.DecoratorDesignPattern.Chicken;
@@ -55,7 +59,20 @@ public class Main {
         Pizza pizza = new Chicken(new Cheese(new BasicPizza()));
         System.out.println((int)pizza.getPrice()+" $" );
         System.out.println(pizza.getDescription());
+        System.out.println();
         // ** End Decorator Design Pattern Example **
 
+        // ** Start Adapter Design Pattern Example **
+        //Create BicycleAdapter Class for adapt Bicycle Class with Vehicle Class
+        Vehicle car = new Car();
+        car.accelerate();
+        car.pushBreak();
+        car.soundHorn();
+        System.out.println();
+        Vehicle bike = new BicycleAdapter(new Bicycle());
+        bike.accelerate();
+        bike.pushBreak();
+        bike.soundHorn();
+        // ** End Adapter Design Pattern Example **
     }
 }
